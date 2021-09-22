@@ -1,0 +1,44 @@
+{
+  "name": "svelte-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv public --no-clear",
+    "validate": "svelte-check"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@rollup/plugin-typescript": "^8.0.0",
+    "@tsconfig/svelte": "^1.0.10",
+    "@zerodevx/svelte-toast": "^0.3.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "svelte-check": "^1.0.0",
+    "svelte-preprocess": "^4.7.3",
+    "tslib": "^2.0.0",
+    "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "@cloudbase/js-sdk": "^1.5.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@types/node": "^16.9.2",
+    "autoprefixer": "^10.2.5",
+    "moment": "^2.29.1",
+    "pem-ts": "^3.0.0",
+    "postcss": "^8.2.14",
+    "postcss-load-config": "^3.0.1",
+    "rollup-plugin-node-polyfills": "^0.2.1",
+    "rollup-plugin-replace": "^2.2.0",
+    "rollup-plugin-sourcemaps": "^0.6.3",
+    "rollup-wasm-pack-import": "^2.0.0",
+    "sirv-cli": "^1.0.0",
+    "tailwindcss": "^2.1.2"
+  }
+}

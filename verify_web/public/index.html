@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+    <title>Sgx 验证</title>
+
+    <link rel="icon" type="image/png" href="/littleLogo.png" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/build/bundle.css" />
+    <script defer src="/build/bundle.js"></script>
+    <script src="/wasm_exec.js"></script>
+    <script>
+      console.log("prod");
+
+      const go = new Go();
+      fetchAndInstantiate();
+      async function fetchAndInstantiate() {
+        const response = await fetch(
+          "/main.wasm"
+        );
+        const buffer = await response.arrayBuffer();
+        const obj = await WebAssembly.instantiate(buffer, go.importObject).then(
+          (result) => {
+            go.run(result.instance);
+          }
+        );
+      }
+    </script>
+  </head>
+
+  <body></body>
+</html>

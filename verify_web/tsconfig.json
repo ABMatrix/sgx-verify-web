@@ -1,0 +1,9 @@
+{
+  "extends": "@tsconfig/svelte/tsconfig.json",
+  "include": ["src/**/*", "static/js/wasm_exec.js"],
+  "exclude": ["node_modules/*", "__sapper__/*", "public/*"],
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["es2020", "esnext.bigint"]
+  }
+}
