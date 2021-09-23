@@ -2,7 +2,6 @@
 
 用于验证 SGX 服务器证书。
 
-
 ## Build and Run
 
 ```bash
