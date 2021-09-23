@@ -21,7 +21,7 @@
         if (isValid) {
           pem = event.target.result;
         } else {
-          toast.push("证书文件不正确")
+          toast.push("证书文件不正确");
           file = undefined;
         }
       });
@@ -53,18 +53,25 @@
 <section class="max-w-4xl mx-auto px-4 pt-24">
   <div class="flex flex-col space-y-4">
     <div class="w-full shadow-inner rounded-md bg-blue-100 p-4">
-      <article
+      <div id="loading" class="mx-auto">
+        <div class="spinner">
+          <div class="double-bounce1" />
+          <div class="double-bounce2" />
+        </div>
+      </div>
+      <div
+        id="upload"
         aria-label="File Upload Modal"
-        class="relative h-full flex flex-col "
+        class="hidden relative h-full flex flex-col "
         ondrop="dropHandler(event);"
         ondragover="dragOverHandler(event);"
         ondragleave="dragLeaveHandler(event);"
         ondragenter="dragEnterHandler(event);"
       >
         <!-- scroll area -->
-        <section class="h-full overflow-auto p-8 w-full flex flex-col">
+        <section class="h-full overflow-auto w-full flex flex-col p-4 md:p-8">
           {#if pem == null}
-            <header
+            <div
               class="border-dashed border-2 border-gray-400 py-12 flex flex-col justify-center items-center"
             >
               <p
@@ -86,10 +93,10 @@
               >
                 Upload a file
               </button>
-            </header>
+            </div>
           {:else}
             <div
-              class="text-yellow-600 break-words border-dashed border-2 border-gray-400 py-4 p-8"
+              class="text-yellow-600 font-mono break-words border-dashed border-2 border-gray-400 py-4 p-2 md:p-4"
             >
               <div>-----BEGIN CERTIFICATE-----</div>
               <div>{shortPem(pem)[0]}</div>
@@ -103,7 +110,7 @@
               {#if isSgxCert}
                 <div class="py-4 text-green-600">
                   <span />
-                  <span class="text-xl"> 该证书为 SGX 证书 </span>
+                  <span class="text-lg"> 该证书为 SGX 证书 🎉 </span>
                 </div>
                 <ul class="list-disc list-inside break-words text-blue-600">
                   <li>
@@ -136,7 +143,7 @@
               {:else}
                 <div class="py-4 text-red-600">
                   <span />
-                  <span class="text-xl"> 该证书非 SGX 证书</span>
+                  <span class="text-lg"> 该证书非 SGX 证书 ☹</span>
                 </div>
                 <div>{resultData}</div>
               {/if}
@@ -165,7 +172,7 @@
             {/if}
           </footer>
         </section>
-      </article>
+      </div>
     </div>
   </div>
   <section class="py-8 ">

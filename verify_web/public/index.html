@@ -4,30 +4,32 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <title>Sgx 验证</title>
+    <title>SGX 验证</title>
     <link rel="icon" type="image/png" href="/sgx-verify-web/littleLogo.png" />
     <link rel="stylesheet" href="/sgx-verify-web/global.css" />
     <link rel="stylesheet" href="/sgx-verify-web/build/bundle.css" />
     <script defer src="/sgx-verify-web/build/bundle.js"></script>
     <script src="/sgx-verify-web/wasm_exec.js"></script>
-    <script>
-      console.log("prod");
-
-      const go = new Go();
-      fetchAndInstantiate();
-      async function fetchAndInstantiate() {
-        const response = await fetch(
-          "/sgx-verify-web/main.wasm"
-        );
-        const buffer = await response.arrayBuffer();
-        const obj = await WebAssembly.instantiate(buffer, go.importObject).then(
-          (result) => {
-            go.run(result.instance);
-          }
-        );
-      }
-    </script>
   </head>
 
   <body></body>
+  <script>
+    const go = new Go();
+    fetchAndInstantiate();
+
+    async function fetchAndInstantiate() {
+      const response = await fetch("/main.wasm");
+      const buffer = await response.arrayBuffer();
+      await new Promise(resolve => setTimeout(resolve, 1000))
+
+      document.getElementById("loading").remove();
+      document.getElementById("upload").classList.remove("hidden");
+
+      const obj = await WebAssembly.instantiate(buffer, go.importObject).then(
+        (result) => {
+          go.run(result.instance);
+        }
+      );
+    }
+  </script>
 </html>
