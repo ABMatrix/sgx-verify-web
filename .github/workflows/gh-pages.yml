@@ -20,6 +20,7 @@ jobs:
         run: |
           cd wasm
           GOARCH=wasm GOOS=js go build -o main.wasm
+          cp main.wasm ../verify_web/
           cd ..
         
       - name: Install and Build
