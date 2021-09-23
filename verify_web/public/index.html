@@ -17,7 +17,7 @@
       fetchAndInstantiate();
       async function fetchAndInstantiate() {
         const response = await fetch(
-          "/main.wasm"
+          "/sgx-verify-web/main.wasm"
         );
         const buffer = await response.arrayBuffer();
         const obj = await WebAssembly.instantiate(buffer, go.importObject).then(
