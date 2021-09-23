@@ -10,7 +10,6 @@ import replace from "rollup-plugin-replace";
 import sveltePreprocess from "svelte-preprocess";
 import json from "@rollup/plugin-json";
 import nodePolyfills from "rollup-plugin-node-polyfills";
-import wasmImport from 'rollup-wasm-pack-import';
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -82,13 +81,6 @@ export default {
     sourcemaps(),
     json(),
     nodePolyfills(),
-    wasmImport({
-      copy: true,
-      serverPath: "/assets/",
-      mapping: {
-        "cert": "verify_mra_cert_bg.wasm",
-      },
-    }),
     replace({
       "process.env.NODE_ENV": JSON.stringify("development"),
     }),
