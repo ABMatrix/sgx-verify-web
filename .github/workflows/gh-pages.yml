@@ -25,8 +25,9 @@ jobs:
       - name: Install and Build
         run: |
           cd verify_web
-          npm install
-          npm run build
+          npm install -g yarn
+          yarn
+          yarn build
 
       # Runs deploy commands
       - name: Deploy
