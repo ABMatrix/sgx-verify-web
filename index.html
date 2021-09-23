@@ -18,7 +18,7 @@
     fetchAndInstantiate();
 
     async function fetchAndInstantiate() {
-      const response = await fetch("/main.wasm");
+      const response = await fetch("/sgx-verify-web/main.wasm");
       const buffer = await response.arrayBuffer();
       await new Promise(resolve => setTimeout(resolve, 1000))
 
