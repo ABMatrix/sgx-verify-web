@@ -16,9 +16,9 @@
       <div class="flex flex-row justify-items-center space-x-4 my-4">
         <div
           class="my-auto cursor-pointer hover:text-blue-400 font-mono active:underline text-blue-600"
-          on:click={() => window.open("https://github.com/ABMatrix/sgx_client")}
+          on:click={() => window.open("https://github.com/ABMatrix/sgx-verify-web")}
         >
-          Github
+          GitHub
         </div>
       </div>
     </div>

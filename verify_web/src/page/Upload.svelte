@@ -177,7 +177,7 @@
   </div>
   <section class="py-8 ">
     <!-- <div>常见问题</div>
-    <ul>
+    <ul>w
       <li>
         <div>Sgx 服务器安全在哪里？</div>
         <div />
@@ -186,6 +186,23 @@
         <div>Sgx 证书验证过程？</div>
       </li>
     </ul> -->
-    <div class="text-blue-600 py-4">Made by ❤️ @safematrix</div>
+    <div class="text-sm py-4">
+      Build with
+      <a class="text-blue-600" href="https://golang.org/" target="_blank"
+        >Golang</a
+      >
+      +
+      <a class="text-blue-600" href="https://webassembly.org/" target="_blank"
+        >WebAssembly</a
+      >
+      +
+      <a class="text-blue-600" href="https://svelte.dev/" target="_blank"
+        >Svelte</a
+      >
+      <br />Made by ❤️
+      <a class="text-blue-600" href="https://www.safematrix.io" target="_blank"
+        >@safematrix</a
+      >
+    </div>
   </section>
 </section>
